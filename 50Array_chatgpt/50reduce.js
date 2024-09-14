@@ -103,4 +103,101 @@ const removeDup=arr10.reduce((acc,val)=>{
         acc.push(val);
     return acc;
 },[])
-console.log(removeDup)
+console.log(removeDup);
+
+
+
+
+//11. Get distinct objects by property
+const arr11=[{ id: 1 }, { id: 2 }, { id: 1 }];
+const distinctob=arr11.reduce((acc,val)=>{
+    if(!acc.find(o=>o.id===val.id))
+        acc.push(val);
+    return acc;
+},[]);
+console.log(distinctob);//[ { id: 1 }, { id: 2 } ]
+
+//12. Concatenate strings
+const arr12= ['Hello', 'world', '!'];
+const concaStr=arr12.reduce((acc,val)=>
+    acc+' '+val
+
+)
+console.log(concaStr)
+
+
+//13. Calculate average of an array
+
+const arr13 = [10, 20, 30, 40];
+const avg=arr13.reduce((acc,val)=>
+    acc+val/arr13.length,0)
+console.log(avg)
+
+//14. Get the longest string in an array
+
+const arr14 = ['apple', 'banana', 'cherry'];
+const longest=arr14.reduce((acc,val)=>
+    val.length>acc.length?val:acc
+,'');
+console.log(longest)
+
+
+//15. Count total number of characters in an array of strings
+const arr15 = ['apple', 'banana', 'cherry'];
+const totalchars=arr15.reduce((acc,val)=>acc+val.length,0);
+console.log(totalchars)
+
+//16. Flatten an array of arrays
+
+
+const arr16 = [[1], [2, [3, 4]], [5]];
+const flat = arr16.reduce((acc, val) => acc.concat(val.flat()), []);
+console.log(flat); // Output: [1, 2, 3, 4, 5]
+
+//17. Convert array of objects to a single object
+const arr17 = [{ key: 'a', value: 1 }, { key: 'b', value: 2 }];
+
+const single=arr17.reduce((acc,{key,value})=>{
+    acc[key]=value;
+    return acc;
+},{})
+
+// First Iteration ({ key: 'a', value: 1 }):
+
+// key = 'a'
+// value = 1
+// acc[key] = value → acc['a'] = 1
+// acc after this iteration:
+// js
+// Copy code
+// acc = { a: 1 };
+// Second Iteration ({ key: 'b', value: 2 }):
+
+// key = 'b'
+// value = 2
+// acc[key] = value → acc['b'] = 2
+// acc after this iteration:
+// js
+// Copy code
+// acc = { a: 1, b: 2 };
+
+console.log(single)
+
+//18. Merge two objects
+const obj1 = { a: 1, b: 2 };
+const obj2 = { b: 3, c: 4 };
+const mergeofobj=[obj1,obj2].reduce((acc,o)=>({...acc,...o}),{});
+console.log(mergeofobj);
+
+//19. Find common elements between two arrays
+const arr19 = [1, 2, 3];
+const arr29 = [2, 3, 4];
+const common=arr19.reduce((acc,val)=>arr19.includes(val)?acc.concat(val):acc,[]);
+console.log(common)
+
+//20. Sum of squares
+const arr20 = [1, 2, 3];
+const sumofsq=arr20.reduce((acc,val)=>acc+val*val,0)
+console.log(sumofsq)
+
+//21. Convert a string into a character frequency map
