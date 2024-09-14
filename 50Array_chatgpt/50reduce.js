@@ -53,7 +53,7 @@ console.log(sumeven);
 //8. Sum of odd numbers
 const arr8=[1, 2, 3, 4, 5, 6];
 const sumodd=arr8.reduce((acc,val)=>val%2!=0?val+acc:acc,0);
-console.log(sumodd)
+console.log(sumodd)//
 
 //9. Group by age
 const people=[
@@ -103,7 +103,7 @@ const removeDup=arr10.reduce((acc,val)=>{
         acc.push(val);
     return acc;
 },[])
-console.log(removeDup);
+console.log(removeDup);//[ 1, 2, 3, 4 ]
 
 
 
@@ -123,7 +123,7 @@ const concaStr=arr12.reduce((acc,val)=>
     acc+' '+val
 
 )
-console.log(concaStr)
+console.log(concaStr)//Hello world !
 
 
 //13. Calculate average of an array
@@ -131,7 +131,7 @@ console.log(concaStr)
 const arr13 = [10, 20, 30, 40];
 const avg=arr13.reduce((acc,val)=>
     acc+val/arr13.length,0)
-console.log(avg)
+console.log(avg)//25
 
 //14. Get the longest string in an array
 
@@ -139,13 +139,13 @@ const arr14 = ['apple', 'banana', 'cherry'];
 const longest=arr14.reduce((acc,val)=>
     val.length>acc.length?val:acc
 ,'');
-console.log(longest)
+console.log(longest)//banana
 
 
 //15. Count total number of characters in an array of strings
 const arr15 = ['apple', 'banana', 'cherry'];
 const totalchars=arr15.reduce((acc,val)=>acc+val.length,0);
-console.log(totalchars)
+console.log(totalchars)//17
 
 //16. Flatten an array of arrays
 
@@ -181,23 +181,61 @@ const single=arr17.reduce((acc,{key,value})=>{
 // Copy code
 // acc = { a: 1, b: 2 };
 
-console.log(single)
+console.log(single)//{ a: 1, b: 2 }
 
 //18. Merge two objects
 const obj1 = { a: 1, b: 2 };
 const obj2 = { b: 3, c: 4 };
 const mergeofobj=[obj1,obj2].reduce((acc,o)=>({...acc,...o}),{});
-console.log(mergeofobj);
+console.log(mergeofobj);//{ a: 1, b: 3, c: 4 }
 
 //19. Find common elements between two arrays
 const arr19 = [1, 2, 3];
 const arr29 = [2, 3, 4];
 const common=arr19.reduce((acc,val)=>arr19.includes(val)?acc.concat(val):acc,[]);
-console.log(common)
+console.log(common)//[ 1, 2, 3 ]
 
 //20. Sum of squares
 const arr20 = [1, 2, 3];
 const sumofsq=arr20.reduce((acc,val)=>acc+val*val,0)
-console.log(sumofsq)
+console.log(sumofsq)//14
 
 //21. Convert a string into a character frequency map
+const str = 'hello';
+const freq=str.split('').reduce((acc,val)=>{
+    acc[val]=(acc[val] || 0)+1;
+    return acc;
+},{})
+console.log(freq)//{ h: 1, e: 1, l: 2, o: 1 }
+
+//22. Sum of array elements at even indices
+const arr22 = [1, 2, 3, 4, 5];
+const sumarreven=arr22.reduce((acc,val,index)=>index%2==0?acc+val:acc,0);
+console.log(sumarreven);//9
+
+// sum of array at odd index
+const oddindexsum=arr22.reduce((acc,val,ind)=>ind%2!=0?acc+val:acc,0);
+console.log(oddindexsum)
+
+
+//23. Find the index of the maximum element
+const arr23 = [1, 3, 7, 2, 5];
+const maxindex=arr23.reduce((acc,val,ind,array)=> val>array[acc] ? ind:acc,0);
+console.log(maxindex)//2
+
+//24. Find the most frequent element
+const arr24 = [1, 2, 2, 3, 3, 3];
+const mostFreq=arr24.reduce((acc,val)=>{
+    acc[val]=(acc[val] || 0)+1;
+    return acc;
+},{});
+const mostFreqnumber=Object.keys(mostFreq).reduce((a,b)=>mostFreq[a]>mostFreq[b]?a:b,0);
+console.log(mostFreqnumber);//3
+
+//25. Convert an array to a string
+const arr25 = [1, 2, 3];
+const ArrayToString=arr25.reduce((acc,val)=>acc+val.toString(),'');
+console.log(ArrayToString)//123
+
+
+//
